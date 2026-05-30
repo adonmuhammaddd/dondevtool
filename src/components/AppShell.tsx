@@ -184,7 +184,7 @@ function Sidebar({
           <div className="brand-name">
             Don<b>Dev</b>Tool<span className="cursor" />
           </div>
-          <div className="brand-sub">16 tools · 100% offline</div>
+          <div className="brand-sub">{TOOLS.length} tools · 100% offline</div>
         </div>
       </button>
 

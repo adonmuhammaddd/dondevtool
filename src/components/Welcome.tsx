@@ -5,7 +5,7 @@ import { Mascot, Speech } from "@/components/ui";
 
 const BOOT: [string, string, boolean?][] = [
   ["ok", "mount local filesystem … done"],
-  ["ok", "load 16 utilities … done"],
+  ["ok", `load ${TOOLS.length} utilities … done`],
   ["ok", "network disabled · fully offline"],
   ["ac", "ready — awaiting input", true],
 ];
@@ -35,9 +35,9 @@ export default function Welcome({ go }: { go: (id: string) => void }) {
               welcome to <span className="accent">DonDevTool</span>
             </h1>
             <p>
-              Your offline utility belt. Sixteen everyday dev tools in one tab —
-              JSON, regex, hashes, color, JWT and more. Nothing is ever sent over
-              the network.
+              Your offline utility belt. {TOOLS.length} everyday dev tools in one
+              tab — JSON, regex, hashes, crypto, color, JWT and more. Nothing is
+              ever sent over the network.
             </p>
             <div className="quick">
               <button className="btn primary" onClick={() => go("json")}>
@@ -68,7 +68,7 @@ export default function Welcome({ go }: { go: (id: string) => void }) {
 
       <div className="catalog-head">
         <h2>all tools</h2>
-        <span className="count">16 utilities · 4 categories</span>
+        <span className="count">{TOOLS.length} utilities · {CATEGORIES.length} categories</span>
       </div>
       {CATEGORIES.map((cat) => (
         <div className="cat-block" key={cat}>

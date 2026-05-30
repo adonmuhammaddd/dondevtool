@@ -135,6 +135,23 @@ export function hslToString({ h, s, l, a }: Hsl): string {
     : `hsl(${h}, ${s}%, ${l}%)`;
 }
 
+/** WCAG relative luminance of an sRGB color (0–1). */
+export function relativeLuminance({ r, g, b }: Rgb): number {
+  const lin = (c: number) => {
+    const s = c / 255;
+    return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+  };
+  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+}
+
+/** WCAG contrast ratio between two colors (1–21). */
+export function contrastRatio(a: Rgb, b: Rgb): number {
+  const la = relativeLuminance(a);
+  const lb = relativeLuminance(b);
+  const [hi, lo] = la >= lb ? [la, lb] : [lb, la];
+  return (hi + 0.05) / (lo + 0.05);
+}
+
 const clampByte = (n: number) => Math.max(0, Math.min(255, Math.round(n)));
 const round = (n: number) => Math.round(n * 100) / 100;
 function parseAlpha(v: string): number {

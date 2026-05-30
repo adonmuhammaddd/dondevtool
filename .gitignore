@@ -44,3 +44,8 @@ next-env.d.ts
 /Don Dev Tool.zip
 /claude design's questions/
 .DS_Store
+
+# understand-anything knowledge graph (generated analysis, local only)
+/.understand-anything/
+# design brief (local reference, not in repo)
+/DESIGN_PROMPT.md
