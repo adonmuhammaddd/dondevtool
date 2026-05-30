@@ -14,9 +14,9 @@ helpers. Nothing you paste ever leaves your machine.
   and a switchable **green / amber** phosphor accent.
 - `⌘K` to search tools; tool selection lives in the URL hash.
 
-> **Note on fonts:** the UI loads JetBrains Mono + IBM Plex Mono from Google
-> Fonts (cached after first load). To make the app truly air-gapped, self-host
-> them with `next/font/google` — see the comment in `src/app/tokens.css`.
+Fonts (JetBrains Mono + IBM Plex Mono) are **self-hosted** from
+`public/fonts/`, so the app makes **zero network requests** — truly offline.
+Regenerate them with `node scripts/fetch-fonts.mjs`.
 
 ## Tools
 

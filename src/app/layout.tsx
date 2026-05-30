@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./fonts.css";
 import "./tokens.css";
 import "./terminal.css";
 

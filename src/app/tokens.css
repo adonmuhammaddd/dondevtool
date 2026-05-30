@@ -4,7 +4,8 @@
    Switchable phosphor accent (green | amber).
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+/* Fonts are self-hosted from /public/fonts (see src/app/fonts.css) so the app
+   makes zero network requests. Regenerate with scripts/fetch-fonts.mjs. */
 
 :root {
   /* Type */
