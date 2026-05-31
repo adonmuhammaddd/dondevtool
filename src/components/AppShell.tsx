@@ -15,7 +15,6 @@ import {
   Icon,
   Mascot,
   MASCOT_AVATAR,
-  SupportLinks,
   ToastHost,
 } from "@/components/ui";
 import { EthicalAd } from "@/components/EthicalAd";
@@ -83,10 +82,6 @@ export default function AppShell() {
         nav={nav}
         query={query}
         setQuery={setQuery}
-        theme={tweaks.theme}
-        setTheme={(v) => set("theme", v)}
-        accent={tweaks.accent}
-        setAccent={(v) => set("accent", v)}
         searchRef={searchRef}
       />
 
@@ -105,6 +100,12 @@ export default function AppShell() {
             <b>—{path.split("—")[1]}</b>
           </span>
           <span className="spacer" />
+          <NavTweaks
+            theme={tweaks.theme}
+            setTheme={(v) => set("theme", v)}
+            accent={tweaks.accent}
+            setAccent={(v) => set("accent", v)}
+          />
           <div className="keyhint">
             <span>
               <b>⌘K</b> search
@@ -128,26 +129,72 @@ export default function AppShell() {
   );
 }
 
+/* ---------------- Navbar tweaks (theme + accent) ---------------- */
+function NavTweaks({
+  theme,
+  setTheme,
+  accent,
+  setAccent,
+}: {
+  theme: "dark" | "light";
+  setTheme: (v: "dark" | "light") => void;
+  accent: "green" | "amber";
+  setAccent: (v: "green" | "amber") => void;
+}) {
+  return (
+    <div className="nav-tweaks">
+      <div className="nav-toggle" role="group" aria-label="Theme">
+        <button
+          className={theme === "light" ? "on" : ""}
+          onClick={() => setTheme("light")}
+          aria-label="Light theme"
+          title="Light"
+        >
+          <Icon name="sun" size={13} />
+        </button>
+        <button
+          className={theme === "dark" ? "on" : ""}
+          onClick={() => setTheme("dark")}
+          aria-label="Dark theme"
+          title="Dark"
+        >
+          <Icon name="moon" size={13} />
+        </button>
+      </div>
+      <div className="nav-toggle nav-toggle-acc" role="group" aria-label="Accent">
+        <button
+          className={accent === "green" ? "on" : ""}
+          onClick={() => setAccent("green")}
+          aria-label="Green accent"
+          title="Green"
+        >
+          <span className="acc-dot acc-green" />
+        </button>
+        <button
+          className={accent === "amber" ? "on" : ""}
+          onClick={() => setAccent("amber")}
+          aria-label="Amber accent"
+          title="Amber"
+        >
+          <span className="acc-dot acc-amber" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* ---------------- Sidebar ---------------- */
 function Sidebar({
   route,
   nav,
   query,
   setQuery,
-  theme,
-  setTheme,
-  accent,
-  setAccent,
   searchRef,
 }: {
   route: string;
   nav: (id: string) => void;
   query: string;
   setQuery: (v: string) => void;
-  theme: "dark" | "light";
-  setTheme: (v: "dark" | "light") => void;
-  accent: "green" | "amber";
-  setAccent: (v: "green" | "amber") => void;
   searchRef: React.RefObject<HTMLInputElement | null>;
 }) {
   const q = query.trim().toLowerCase();
@@ -259,25 +306,6 @@ function Sidebar({
 
       <div className="side-foot">
         <EthicalAd />
-        <div className="theme-toggle">
-          <button className={theme === "light" ? "on" : ""} onClick={() => setTheme("light")}>
-            <Icon name="sun" size={13} />
-            LIGHT
-          </button>
-          <button className={theme === "dark" ? "on" : ""} onClick={() => setTheme("dark")}>
-            <Icon name="moon" size={13} />
-            DARK
-          </button>
-        </div>
-        <div className="theme-toggle">
-          <button className={accent === "green" ? "on" : ""} onClick={() => setAccent("green")}>
-            GREEN
-          </button>
-          <button className={accent === "amber" ? "on" : ""} onClick={() => setAccent("amber")}>
-            AMBER
-          </button>
-        </div>
-        <SupportLinks />
         <div className="statusline">
           <span className="seg accent">NORMAL</span>
           <span className="seg">

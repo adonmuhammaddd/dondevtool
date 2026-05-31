@@ -1,7 +1,7 @@
 "use client";
 
 import { CATEGORIES, CAT_ABBR, TOOLS } from "@/components/registry";
-import { Mascot, Speech } from "@/components/ui";
+import { Mascot, Speech, SupportLinks } from "@/components/ui";
 
 const BOOT: [string, string, boolean?][] = [
   ["ok", "mount local filesystem … done"],
@@ -95,6 +95,10 @@ export default function Welcome({ go }: { go: (id: string) => void }) {
           </div>
         </div>
       ))}
+
+      <div className="home-support">
+        <SupportLinks />
+      </div>
     </div>
   );
 }
