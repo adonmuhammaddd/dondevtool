@@ -4,9 +4,9 @@ import "./tokens.css";
 import "./terminal.css";
 
 export const metadata: Metadata = {
-  title: "DonDevTool — offline dev terminal",
+  title: "DonDevTool — privacy-first dev terminal",
   description:
-    "A local, offline collection of developer utilities in a retro terminal UI: JSON, YAML, Base64, hashing, JWT, regex, cron, diff, and more.",
+    "A local, privacy-first collection of developer utilities in a retro terminal UI — your data never leaves your browser, no tracking. JSON, YAML, Base64, hashing, JWT, regex, cron, diff, and more.",
 };
 
 // Applied before paint to avoid a theme flash / hydration mismatch on <html>.

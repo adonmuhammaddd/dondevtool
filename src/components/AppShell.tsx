@@ -18,6 +18,7 @@ import {
   SupportLinks,
   ToastHost,
 } from "@/components/ui";
+import { EthicalAd } from "@/components/EthicalAd";
 import { useTweaks } from "@/lib/useTweaks";
 
 function useRoute(): [string, (id: string) => void] {
@@ -185,7 +186,7 @@ function Sidebar({
           <div className="brand-name">
             Don<b>Dev</b>Tool<span className="cursor" />
           </div>
-          <div className="brand-sub">{TOOLS.length} tools · 100% offline</div>
+          <div className="brand-sub">{TOOLS.length} tools · no tracking</div>
         </div>
       </button>
 
@@ -257,6 +258,7 @@ function Sidebar({
       </nav>
 
       <div className="side-foot">
+        <EthicalAd />
         <div className="theme-toggle">
           <button className={theme === "light" ? "on" : ""} onClick={() => setTheme("light")}>
             <Icon name="sun" size={13} />
@@ -280,7 +282,7 @@ function Sidebar({
           <span className="seg accent">NORMAL</span>
           <span className="seg">
             <span className="dot" />
-            offline
+            private
           </span>
           <span className="seg grow" style={{ justifyContent: "flex-end" }}>
             v1.0.0

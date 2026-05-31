@@ -6,7 +6,7 @@ import { Mascot, Speech } from "@/components/ui";
 const BOOT: [string, string, boolean?][] = [
   ["ok", "mount local filesystem … done"],
   ["ok", `load ${TOOLS.length} utilities … done`],
-  ["ok", "network disabled · fully offline"],
+  ["ok", "no telemetry · runs in your browser"],
   ["ac", "ready — awaiting input", true],
 ];
 
@@ -35,9 +35,9 @@ export default function Welcome({ go }: { go: (id: string) => void }) {
               welcome to <span className="accent">DonDevTool</span>
             </h1>
             <p>
-              Your offline utility belt. {TOOLS.length} everyday dev tools in one
-              tab — JSON, regex, hashes, crypto, color, JWT and more. Nothing is
-              ever sent over the network.
+              Your local utility belt. {TOOLS.length} everyday dev tools in one
+              tab — JSON, regex, hashes, crypto, color, JWT and more. Your data
+              never leaves your browser — no tracking, no accounts.
             </p>
             <div className="quick">
               <button className="btn primary" onClick={() => go("json")}>
