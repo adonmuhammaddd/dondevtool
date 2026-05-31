@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 // Applied before paint to avoid a theme flash / hydration mismatch on <html>.
 const themeBootstrap = `(function(){try{
   var d=document.documentElement, s=localStorage;
-  d.setAttribute('data-theme', s.getItem('ddt:theme')||'dark');
-  d.setAttribute('data-accent', s.getItem('ddt:accent')||'green');
+  d.setAttribute('data-theme', s.getItem('ddt:theme')||'light');
+  d.setAttribute('data-accent', s.getItem('ddt:accent')||'amber');
   d.setAttribute('data-glow', (s.getItem('ddt:glow')||'on'));
   d.setAttribute('data-blink', (s.getItem('ddt:blink')||'on'));
   var sl=s.getItem('ddt:scanlines'); if(sl!=null) d.style.setProperty('--scanline-opacity',(parseInt(sl,10)/100).toFixed(3));
@@ -23,7 +23,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="dark" data-accent="green" suppressHydrationWarning>
+    <html lang="en" data-theme="light" data-accent="amber" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>

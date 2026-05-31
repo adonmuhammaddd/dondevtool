@@ -144,6 +144,28 @@ button { font-family: inherit; }
 .statusline .seg.grow { flex: 1; color: var(--text-2); }
 .statusline .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px var(--success); }
 
+/* ---------------- Support / donate ---------------- */
+.support { display: flex; flex-direction: column; gap: var(--s2); }
+.support-head {
+  font-size: 10.5px; letter-spacing: .08em; color: var(--text-2);
+  text-transform: uppercase; display: flex; align-items: center; gap: 6px;
+}
+.support-head .prompt { color: var(--accent); }
+.support-links { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.support-link {
+  display: flex; align-items: center; gap: 6px; min-width: 0;
+  padding: 6px 8px; border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--bg-2); color: var(--text-1); text-decoration: none;
+  font-size: 10.5px; letter-spacing: .02em; white-space: nowrap; overflow: hidden;
+  transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+}
+.support-link .sg { color: var(--accent); font-size: 12px; line-height: 1; flex: none; }
+.support-link span:last-child { overflow: hidden; text-overflow: ellipsis; }
+.support-link:hover {
+  color: var(--text-0); border-color: var(--accent);
+  background: var(--accent-soft); box-shadow: 0 0 8px var(--border-glow);
+}
+
 /* ---------------- Main / topbar ---------------- */
 .main { display: flex; flex-direction: column; min-width: 0; min-height: 0; position: relative; }
 .topbar {

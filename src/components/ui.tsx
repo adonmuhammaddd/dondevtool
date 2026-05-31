@@ -6,6 +6,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
+import { SUPPORT_LINKS } from "@/lib/support";
 
 export function cx(...parts: (string | false | null | undefined)[]): string {
   return parts.filter(Boolean).join(" ");
@@ -229,6 +230,35 @@ export function FieldLabel({
     <div className="field-label" style={{ justifyContent: right ? "space-between" : "flex-start" }}>
       <span>{children}</span>
       {right}
+    </div>
+  );
+}
+
+/* ---------------- Support / donate ---------------- */
+export function SupportLinks() {
+  if (SUPPORT_LINKS.length === 0) return null;
+  return (
+    <div className="support">
+      <div className="support-head">
+        <span className="prompt">❯</span> support don
+      </div>
+      <div className="support-links">
+        {SUPPORT_LINKS.map((l) => (
+          <a
+            key={l.id}
+            className="support-link"
+            href={l.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Dukung lewat ${l.label}`}
+          >
+            <span className="sg" aria-hidden="true">
+              {l.glyph}
+            </span>
+            {l.label}
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

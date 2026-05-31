@@ -15,6 +15,7 @@ import {
   Icon,
   Mascot,
   MASCOT_AVATAR,
+  SupportLinks,
   ToastHost,
 } from "@/components/ui";
 import { useTweaks } from "@/lib/useTweaks";
@@ -274,6 +275,7 @@ function Sidebar({
             AMBER
           </button>
         </div>
+        <SupportLinks />
         <div className="statusline">
           <span className="seg accent">NORMAL</span>
           <span className="seg">

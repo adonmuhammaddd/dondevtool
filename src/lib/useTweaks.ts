@@ -14,8 +14,8 @@ export interface Tweaks {
 }
 
 const DEFAULTS: Tweaks = {
-  theme: "dark",
-  accent: "green",
+  theme: "light",
+  accent: "amber",
   scanlines: 20,
   glow: true,
   blink: true,
