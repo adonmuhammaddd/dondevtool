@@ -57,6 +57,13 @@ export default function AppShell() {
     return () => window.removeEventListener("keydown", on);
   }, []);
 
+  // Anonymous, cookieless usage ping when a tool is opened (analytics.dondev.id).
+  useEffect(() => {
+    if (route && route !== "home") {
+      window.analytics?.track("tool_opened", { tool: route });
+    }
+  }, [route]);
+
   const nav = useCallback(
     (id: string) => {
       go(id);

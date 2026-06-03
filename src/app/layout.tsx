@@ -6,7 +6,7 @@ import "./terminal.css";
 export const metadata: Metadata = {
   title: "DonDevTool — privacy-first dev terminal",
   description:
-    "A local, privacy-first collection of developer utilities in a retro terminal UI — your data never leaves your browser, no tracking. JSON, YAML, Base64, hashing, JWT, regex, cron, diff, and more.",
+    "A local, privacy-first collection of developer utilities in a retro terminal UI — your data never leaves your browser; no cookies, no sign-up, only anonymous usage counts. JSON, YAML, Base64, hashing, JWT, regex, cron, diff, and more.",
 };
 
 // Applied before paint to avoid a theme flash / hydration mismatch on <html>.
@@ -26,6 +26,13 @@ export default function RootLayout({
     <html lang="en" data-theme="light" data-accent="amber" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+        {/* Anonymous, cookieless usage analytics (self-hosted). No PII, no data. */}
+        <script
+          defer
+          src="https://analytics.dondev.id/sdk.js"
+          data-key="079580c7cdee277abd2de3d2492df716f0414294"
+          data-slug="dondevtool"
+        />
       </head>
       <body>
         {children}
