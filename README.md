@@ -57,9 +57,16 @@ selected tool is reflected in the URL hash so refreshes and bookmarks stick.
 ### Production build
 
 ```bash
-npm run build
-npm start
+npm run build   # static export → out/
 ```
+
+## Deploy
+
+`out/` is a plain static site — any static host works, no server runtime.
+
+Production (cPanel) goes through git: `./release.sh` locally builds and pushes
+`out/` to the `deploy` branch; the docroot is a checkout of that branch, a root
+`.htaccess` serves `out/`, and `./server-deploy.sh` just pulls. See [DEPLOY.md](DEPLOY.md).
 
 ## Architecture
 
@@ -87,5 +94,4 @@ client-side computation.
 
 ## Non-goals
 
-No accounts, no database, no telemetry, no deployment target. It's a personal,
-offline utility belt.
+No accounts, no database, no backend. It's an offline-first utility belt.
